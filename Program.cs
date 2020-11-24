@@ -7,20 +7,12 @@ namespace gradebook
     {
         static void Main(string[] args)
         {
-            List<double> grades = new List<double>();
-            grades.Add(34.3);
-            grades.Add(12.6);
-            grades.Add(34.9);
+            GradeBook gradeBook = new GradeBook();
+            gradeBook.addGrade(24.6);
+            gradeBook.addGrade(73.4);
+            gradeBook.addGrade(19.5);
 
-            double sum = 0;
-            foreach (var grade in grades)
-            {
-                sum += grade;
-            }
-
-            double average = sum / grades.Count;
-            Console.WriteLine($"Grades sum is {sum}");
-            Console.WriteLine($"Grades avg is {average:N3}");
+            Console.WriteLine($"Highest grade is {gradeBook.getHighest()}");
         }
     }
 }
