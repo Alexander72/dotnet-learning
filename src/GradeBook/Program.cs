@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace gradebook
+namespace GradeBook
 {
     class Program
     {
@@ -11,7 +11,9 @@ namespace gradebook
             gradeBook.addGrade(73.4);
             gradeBook.addGrade(19.5);
 
-            Console.WriteLine($"Highest grade is {gradeBook.getHighest()}");
+            Statistic statistic = gradeBook.generateStatistic();
+
+            Console.WriteLine($"Highest grade is {statistic.highestGrade}");
         }
     }
 }

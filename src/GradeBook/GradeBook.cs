@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace gradebook
+namespace GradeBook
 {
     public class GradeBook
     {
@@ -17,15 +17,20 @@ namespace gradebook
             grades.Add(grade);
         }
 
-        public double getHighest()
+        public Statistic generateStatistic()
         {
-            double result = double.MinValue;
+            Statistic statistic = new Statistic();
             foreach(double grade in this.grades)
             {
-                result = Math.Max(grade, result);
+                statistic.highestGrade = Math.Max(grade, statistic.highestGrade);
+                statistic.lowestGrade = Math.Min(grade, statistic.lowestGrade);
+                statistic.averageGrade += grade;
             }
 
-            return result;
+            statistic.averageGrade /= this.grades.Count;
+            statistic.gradesCount = this.grades.Count;
+
+            return statistic;
         }
     }
 }
