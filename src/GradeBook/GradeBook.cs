@@ -7,8 +7,11 @@ namespace GradeBook
     {
         List<double> grades;
 
-        public GradeBook()
+        public string name;
+
+        public GradeBook(string name = "")
         {
+            this.name = name;
             this.grades = new List<double>();
         }
 
